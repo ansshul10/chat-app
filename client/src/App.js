@@ -1,12 +1,15 @@
-import { Outlet } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
+import './App.css';
+import { Outlet } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
-    <>
-      <Toaster />
-      <Outlet />  {/* 🔹 Renders the child route (e.g., Register Page) */}
-    </>
+   <> 
+      <Toaster/>
+       <main >
+        <Outlet/>
+       </main>
+   </>
   );
 }
 
