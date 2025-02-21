@@ -9,38 +9,42 @@ import AuthLayouts from "../layout";
 import Forgotpassword from "../pages/Forgotpassword";
 
 const router = createBrowserRouter([
-{
-    path : "/",
-    element : <App/>,
-    children : [
-        {
-            path : "register",
-            element : <AuthLayouts><RegisterPage/></AuthLayouts>
-        },
-        {
-            path : 'email',
-            element : <AuthLayouts><CheckEmailPage/></AuthLayouts>
-        },
-        {
-            path : 'password',
-            element : <AuthLayouts><CheckPasswordPage/></AuthLayouts>
-        },
-        {
-            path : 'forgot-password',
-            element : <AuthLayouts><Forgotpassword/></AuthLayouts>
-        },
-        {
-            path : "",
-            element : <Home/>,
-            children : [
-                {
-                    path : ':userId',
-                    element : <MessagePage/>
-                }
-            ]
-        }
-    ]
-}
-])
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "register",
+        element: <AuthLayouts><RegisterPage /></AuthLayouts>,
+      },
+      {
+        path: "email",
+        element: <AuthLayouts><CheckEmailPage /></AuthLayouts>,
+      },
+      {
+        path: "password",
+        element: <AuthLayouts><CheckPasswordPage /></AuthLayouts>,
+      },
+      {
+        path: "forgot-password",
+        element: <AuthLayouts><Forgotpassword /></AuthLayouts>,
+      },
+      {
+        path: "home",  // ✅ Fixed empty path issue
+        element: <Home />,
+        children: [
+          {
+            path: ":userId",
+            element: <MessagePage />,
+          },
+        ],
+      },
+      {
+        path: "*",  // ✅ Catch-all route for 404 pages
+        element: <h1>404 - Page Not Found</h1>,
+      },
+    ],
+  },
+]);
 
-export default router
+export default router;
