@@ -1,12 +1,11 @@
-import { RouterProvider } from "react-router-dom";
-import router from "./router";
+import { Outlet } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
     <>
       <Toaster />
-      <RouterProvider router={router} />
+      <Outlet />  {/* 🔹 Renders the child route (e.g., Register Page) */}
     </>
   );
 }
