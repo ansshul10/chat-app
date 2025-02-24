@@ -6,7 +6,7 @@ const getUserDetailsFromToken = async(token)=>{
     if(!token){
         return {
             message : "session out",
-            logout : true,
+            logout : false,
         }
     }
 
